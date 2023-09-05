@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Produit n°{{ produits.id }}{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="card border-primary mb-3">
+        <div class="card-header text-center"><img class="img-fluid" src="{{ produits.photo }}" alt=""></div>
+        <div class="card-body">
+            <h4 class="card-title text-center">{{ produits.titre }}</h4>
+            {# {{ produits.description|raw }} #}
+            {{ produits.description|slice(0, 100) }}
+            
+            <p>{{  produits.dateEnregistrement|date('d/m/Y à H:i:s') }}</p>
+
+            <br>
+           <a  class="btn btn-info" href="{{ path('cart_add', {id: produits.id}) }}">Ajouter au panier</a>
+            
+        </div>
+    </div>
+        <a href="{{ path('produits') }}" class="btn btn-primary mb-5">Retour aux produits</a>
+    </div>
+{% endblock %}
+

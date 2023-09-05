@@ -1,0 +1,57 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Fichier produit{% endblock %}
+
+{% block body %}
+<div class="container">
+<table class="table table-dark table-striped">
+<thead>
+    <tr>
+    <th>#</th>
+    <th>Titre</th>
+    <th>Couleur</th>
+    <th>Taille</th>
+    <th>Photo</th>
+    <th>Description</th>
+    <th>Date d'enregistrement</th>
+    <th>Prix </th>
+    <th>Option</th>
+    </tr>
+</thead>
+<tbody>
+      <h1 class="text-center text-primary m-5" >Nos produits</h1>
+    <div class="container">
+    <a href="{{ path('formulaireProduit') }}" class="btn btn-primary btn-lg mb-5">Ajouter</a>
+    </div>
+
+    {% for Produit in fichier %}
+      <div class="container ">
+
+      
+    <tr>
+        <td>{{ Produit.id}}</td>
+        <td>{{ Produit.couleur}}</td>
+        <td>{{ Produit.taille}}</td>
+        <td>{{ Produit.collection}}</td>
+        <td>{{ Produit.photo}}</td>
+        <td>{{ Produit.description|slice(0, 80)}}</td>
+        <td>{{ Produit.dateEnregistrement|date('d/m/Y à H:i:s') }}</td>
+        <td>{{ Produit.prix}}</td>
+        <td>
+           
+            
+            <a href="{{ path('voir', {id: Produit.id} ) }}" class="text-info">voir</a>
+            <a href="{{ path("modifier", {id:Produit.id}) }}" class="text-warning">modifier</a>
+            <a href="{{ path('supprimer', {id: Produit.id}) }}" class="text-danger">supprimer</a>
+            
+
+        </td>
+        
+    </tr>
+      </div>  
+    {% endfor %}
+</tbody>
+</table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulaire
+{% if editMode %}
+    Modifier
+    {% else %}
+        Ajouter
+{% endif %}
+{% endblock %}
+
+{% block body %}
+
+
+<div class="container mx-auto w-50 border border-primary rounded mt-3 p-4" >
+
+    <h1 class="text-primary m-5 text-center">
+    {% if editMode %}
+    Modifier
+{% else %}
+    Ajouter
+    {% endif %}
+    un Produit</h1>
+
+    {{ form_start(formProduit, {
+    attr:{ novalidate: 'novalidate'}
+})}}
+        {{form_row(formProduit.titre, {
+        label: "Titre",
+        attr: {placeholder: "le titre du produit"}
+    })}}
+        {{form_row(formProduit.couleur)}}
+        {{form_row(formProduit.prix)}}
+        {{form_row(formProduit.description)}}
+        {{form_row(formProduit.collection)}}
+        {{form_row(formProduit.photo)}}
+        {{form_row(formProduit.taille)}}
+        {{form_row(formProduit.stock)}}
+        <button class="btn btn-primary col-12" >Envoyez</button>
+
+
+    {{ form_end(formProduit)}}
+
+</div>
+  
+{% endblock %}

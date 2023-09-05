@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Modifier    
+{% endblock %}
+
+{% block body %}
+
+
+<div class="container mx-auto w-50 border border-primary rounded mt-3 p-4" >
+
+    <h1 class="text-primary m-5 text-center">Modifier</h1>
+
+    {{ form_start(formMembre, {
+    attr:{ novalidate: 'novalidate'}
+})}}
+        {# {{form_row(formMembre.titre, {
+        label: "Titre",
+        attr: {placeholder: "le titre du Membre"}
+    })}} #}
+        {{form_row(formMembre.roles)}}
+        {# {{form_row(formMembre.prix)}}
+        {{form_row(formMembre.description)}}
+        {{form_row(formMembre.collection)}}
+        {{form_row(formMembre.photo)}}
+        {{form_row(formMembre.taille)}}
+        {{form_row(formMembre.stock)}} #}
+        <button class="btn btn-primary col-12" >Envoyez</button>
+
+
+    {{ form_end(formMembre)}}
+
+</div>
+  
+{% endblock %}
